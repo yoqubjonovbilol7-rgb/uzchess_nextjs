@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="25b28adf-8a23-44b5-8ec0-4f9e8e9a09c6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../homework" beforeDir="false" afterPath="$PROJECT_DIR$/../homework" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/course/components/CourseCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/src/features/course/components/CourseCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/course/components/CourseFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/src/features/course/components/CourseFilter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/course/components/SearchBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/src/features/course/components/SearchBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/course/page/Course.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/main/Page/Main.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/news/components/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/src/features/news/components/Search.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/news/page/News.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/shared/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/src/features/shared/components/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/shared/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/src/features/shared/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/main.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uzchess_react/vite.config.ts" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3E1sThoBSSFijwhWLke9N1pyQpq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer/WebstormProjects/frontend/uzchess_nextjs/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Acer\\WebstormProjects\\frontend\\uzchess_nextjs\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Acer\WebstormProjects\frontend\uzchess_nextjs\public" />
+      <recent name="C:\Users\Acer\WebstormProjects\frontend\uzchess_nextjs\src" />
+      <recent name="C:\Users\Acer\WebstormProjects\frontend\uzchess_nextjs\src\features\shared" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Acer\WebstormProjects\frontend\uzchess_nextjs\public" />
+      <recent name="C:\Users\Acer\WebstormProjects\frontend\uzchess_nextjs\src" />
+      <recent name="C:\Users\Acer\WebstormProjects\frontend\uzchess_nextjs\src\app" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-WS-252.28539.21" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="25b28adf-8a23-44b5-8ec0-4f9e8e9a09c6" name="Changes" comment="" />
+      <created>1779357421223</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1779357421223</updated>
+      <workItem from="1779357422223" duration="7705000" />
+      <workItem from="1779374059746" duration="8000" />
+      <workItem from="1779374351297" duration="4000" />
+      <workItem from="1780066146742" duration="7862000" />
+      <workItem from="1780401405860" duration="25000" />
+      <workItem from="1780470267192" duration="27999000" />
+      <workItem from="1780562370735" duration="44539000" />
+      <workItem from="1780679582125" duration="42945000" />
+      <workItem from="1780847676135" duration="24973000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="next.config.ts" />
+  </component>
+</project>
