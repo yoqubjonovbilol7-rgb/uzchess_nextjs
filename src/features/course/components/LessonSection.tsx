@@ -17,11 +17,7 @@ function normalizeImageSrc(image?: string) {
         : `http://localhost:3001/${normalized}`;
 }
 
-export default function LessonCard({
-                                       title,
-                                       duration,
-                                       image,
-                                   }: LessonCardProps) {
+export default function LessonCard({title, duration, image,}: LessonCardProps) {
     return (
         <div className="cursor-pointer transition-all duration-300 hover:-translate-y-1">
             <div className="relative h-[90px] overflow-hidden rounded border border-[#24303d] hover:border-sky-500 transition-all">

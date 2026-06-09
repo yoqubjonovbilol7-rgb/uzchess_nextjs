@@ -69,8 +69,6 @@ export default function CourseDetail({ course }: Props) {
         <div className="min-h-screen bg-[#070d14] text-white">
             <div className="mx-auto max-w-7xl px-4 py-6">
 
-                {/* HERO */}
-
                 <div className="relative h-[150px] overflow-hidden rounded-lg border border-[#1d2733]">
 
                     <Image
@@ -85,7 +83,6 @@ export default function CourseDetail({ course }: Props) {
 
                     <div className="absolute inset-0 z-10 flex items-center justify-between px-8">
 
-                        {/* LEFT */}
                         <div>
 
                             <h1 className="text-3xl font-bold text-white">
@@ -134,7 +131,6 @@ export default function CourseDetail({ course }: Props) {
 
                         </div>
 
-                        {/* RIGHT */}
                         <div className="flex flex-col items-end">
 
                             <div className="mb-3 flex items-center gap-1">
@@ -188,14 +184,11 @@ export default function CourseDetail({ course }: Props) {
 
                 </div>
 
-                {/* CONTENT */}
                 <div className="mt-6 flex flex-col gap-6 lg:flex-row">
 
-                    {/* LEFT */}
                     <div className="flex-1">
                         <div className="overflow-hidden rounded-lg border border-[#1d2733] bg-[#121a24]">
 
-                            {/* SECTION 1 */}
                             <div className="border-b border-[#24303d]">
                                 <button
                                     onClick={() => toggleSection(1)}
@@ -238,7 +231,6 @@ export default function CourseDetail({ course }: Props) {
                                 )}
                             </div>
 
-                            {/* SECTION 2 */}
                             <div className="border-b border-[#24303d]">
                                 <button
                                     onClick={() => toggleSection(2)}
@@ -256,7 +248,6 @@ export default function CourseDetail({ course }: Props) {
                                 </button>
                             </div>
 
-                            {/* SECTION 3 */}
                             <div>
                                 <button
                                     onClick={() => toggleSection(3)}
@@ -277,7 +268,6 @@ export default function CourseDetail({ course }: Props) {
                         </div>
                     </div>
 
-                    {/* RIGHT SIDEBAR */}
                     <div className="w-[300px] flex-shrink-0">
                         <YouthCard />
                     </div>

@@ -70,7 +70,6 @@ export default function CourseFilter({
                 </div>
 
                 <div className="flex flex-col gap-5">
-                    {/* Daraja */}
                     <div>
                         <p className="text-[#9CA3AF] text-sm uppercase mb-3">Darajani tanlang:</p>
                         <select value={selectedDifficulty} onChange={(e) => setSelectedDifficulty(e.target.value)} className="w-full h-[52px] bg-[#232627] border border-[#232627] rounded-xl px-4 text-white outline-none">
@@ -79,7 +78,6 @@ export default function CourseFilter({
                         </select>
                     </div>
 
-                    {/* Kategoriya */}
                     <div>
                         <p className="text-[#9CA3AF] text-sm uppercase mb-3">Kategoriya:</p>
                         <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)} className="w-full h-[52px] bg-[#232627] border border-[#232627] rounded-xl px-4 text-white outline-none">
@@ -88,7 +86,6 @@ export default function CourseFilter({
                         </select>
                     </div>
 
-                    {/* Til */}
                     <div>
                         <p className="text-[#9CA3AF] text-sm uppercase mb-3">Darslik tili:</p>
                         <select value={selectedLanguage} onChange={(e) => setSelectedLanguage(e.target.value)} className="w-full h-[52px] bg-[#232627] border border-[#232627] rounded-xl px-4 text-white outline-none">
@@ -97,7 +94,6 @@ export default function CourseFilter({
                         </select>
                     </div>
 
-                    {/* Reyting */}
                     <div>
                         <p className="text-[#9CA3AF] text-sm uppercase mb-3">Reyting:</p>
                         <div className="w-full h-[60px] bg-[#232627] border border-[#1F2937] rounded-xl flex items-center justify-center gap-2">
