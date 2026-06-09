@@ -1,11 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-    ShoppingCart,
-    Heart,
-    Share2
-} from "lucide-react";
+import {ShoppingCart, Heart, Share2} from "lucide-react";
 import Image from "next/image";
 
 interface Props {
@@ -59,7 +55,7 @@ export default function BookDetail({ book }: Props) {
         <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-3xl p-8">
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="w-[190px] shrink-0">
-                    <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-red-500 via-purple-500 to-blue-500 p-[1px]">
+                    <div className="rounded-2xl overflow-hidden bg-gradient-to-br ">
                         <Image
                             src={imageSrc}
                             alt={book.title}

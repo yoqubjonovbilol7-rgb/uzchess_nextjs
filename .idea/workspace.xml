@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b28adf-8a23-44b5-8ec0-4f9e8e9a09c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/features/course/components/CourseDetail.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/course/components/LessonSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../homework" beforeDir="false" afterPath="$PROJECT_DIR$/../homework" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/library/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/library/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/course/components/CourseCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/course/components/CourseCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/library/components/BookDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/library/components/BookDetail.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess_react/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/eslint.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess_react/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess_react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../uzchess_react/package-lock.json" afterDir="false" />
@@ -35,13 +41,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -61,7 +67,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer/WebstormProjects/frontend/uzchess_nextjs/public&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer/WebstormProjects/frontend/uzchess_nextjs/src/features/course/components&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -76,6 +82,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Acer\WebstormProjects\frontend\uzchess_nextjs\src\features\course\components" />
       <recent name="C:\Users\Acer\WebstormProjects\frontend\uzchess_nextjs\public" />
       <recent name="C:\Users\Acer\WebstormProjects\frontend\uzchess_nextjs\src" />
       <recent name="C:\Users\Acer\WebstormProjects\frontend\uzchess_nextjs\src\features\shared" />
@@ -123,7 +130,9 @@
       <workItem from="1780470267192" duration="27999000" />
       <workItem from="1780562370735" duration="44539000" />
       <workItem from="1780679582125" duration="42945000" />
-      <workItem from="1780847676135" duration="24973000" />
+      <workItem from="1780847676135" duration="28293000" />
+      <workItem from="1780934547022" duration="19256000" />
+      <workItem from="1780992517988" duration="26901000" />
     </task>
     <servers />
   </component>

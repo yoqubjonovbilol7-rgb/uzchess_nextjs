@@ -74,7 +74,6 @@ export default async function Page({ params }: PageProps) {
 
     return (
         <div className="mx-auto flex max-w-7xl gap-8 px-5 py-10 items-start">
-            {/* LEFT SIDE */}
             <div className="flex-1">
                 <BookDetail book={book} />
 
@@ -83,7 +82,6 @@ export default async function Page({ params }: PageProps) {
                 </div>
             </div>
 
-            {/* RIGHT SIDEBAR */}
             <aside className="hidden lg:flex w-[320px] shrink-0 flex-col gap-6">
                 <YouthCard />
 

@@ -37,6 +37,16 @@ interface Props {
     course: Course;
 }
 
+function normalizeImageSrc(image?: string) {
+    if (!image) return "";
+
+    const normalized = image.replace(/\\/g, "/");
+
+    return normalized.startsWith("http")
+        ? normalized
+        : `http://localhost:3001/${normalized}`;
+}
+
 export default function CourseCard({ course }: Props) {
     const [liked, setLiked] = useState(course.isLiked ?? false);
     const [loading, setLoading] = useState(false);
@@ -91,7 +101,7 @@ export default function CourseCard({ course }: Props) {
                     style={{ width: '210px', height: '150px' }}
                 >
                     <Image
-                        src={course.image}
+                        src={normalizeImageSrc(course.image)}
                         alt={course.title}
                         fill
                         className="object-cover rounded-lg"
@@ -137,7 +147,7 @@ export default function CourseCard({ course }: Props) {
                             <div className="flex items-center gap-2">
                                 {course.difficulty?.icon && (
                                     <Image
-                                        src={`http://localhost:3001/${course.difficulty.icon.replace(/\\/g, '/')}`}
+                                        src={normalizeImageSrc(course.difficulty.icon)}
                                         alt="difficulty"
                                         width={20}
                                         height={20}
