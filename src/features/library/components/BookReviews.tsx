@@ -1,95 +1,189 @@
 ﻿"use client";
 
-import { Star } from "lucide-react";
+import { useEffect, useState } from "react";
+import { MoreVertical, Star } from "lucide-react";
 
-interface Review {
+interface BookReview {
     id: number;
     userId: number;
     bookId: number;
-    rating: number;
-    comment?: string;
-    createdAt?: string;
-    updatedAt?: string;
-    date?: string;
+    rating: string;
+    comment: string;
+    date: string;
 }
 
-interface BookReviewsProps {
-    reviews: Review[];
+interface ReviewResponse {
+    totalCount: number;
+    totalPages: number;
+    previousPage: number | null;
+    currentPage: number;
+    nextPage: number | null;
+    data: BookReview[];
 }
 
-export default function BookReviews({
-                                        reviews,
-                                    }: BookReviewsProps) {
-    const formatDate = (date?: string) => {
-        if (!date) return "Sana mavjud emas";
+export default function BookReviews() {
+    const [reviews, setReviews] = useState<BookReview[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [showAll, setShowAll] = useState(false);
 
-        try {
-            return new Date(date).toLocaleDateString("uz-UZ", {
-                day: "2-digit",
-                month: "long",
-                year: "numeric",
-            });
-        } catch {
-            return "Sana mavjud emas";
-        }
-    };
+    useEffect(() => {
+        const getReviews = async () => {
+            try {
+                const res = await fetch(
+                    "http://localhost:3001/public/BookReviews",
+                    {
+                        cache: "no-store",
+                    }
+                );
 
-    return (
-        <section className="mt-10">
-            <div className="rounded-3xl border border-zinc-800 bg-[#111111] p-6">
-                <h2 className="mb-6 text-2xl font-bold text-white">
-                    Sharhlar ({reviews.length})
+                const data: ReviewResponse = await res.json();
+
+                setReviews(
+                    Array.isArray(data.data)
+                        ? data.data
+                        : []
+                );
+            } catch (error) {
+                console.error(
+                    "Reviewlarni olishda xatolik:",
+                    error
+                );
+                setReviews([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        getReviews();
+    }, []);
+
+    if (loading) {
+        return (
+            <section className="mt-12">
+                <h2 className="mb-6 text-3xl font-bold text-white">
+                    Kitob haqida izohlar
                 </h2>
 
-                {reviews.length === 0 ? (
-                    <div className="rounded-2xl border border-zinc-700 bg-zinc-900 p-6 text-center text-gray-400">
-                        Hozircha sharhlar mavjud emas.
-                    </div>
-                ) : (
-                    <div className="space-y-4">
-                        {reviews.map((review) => (
-                            <div
-                                key={review.id}
-                                className="rounded-2xl border border-zinc-700 bg-zinc-900 p-5"
-                            >
-                                <div className="flex items-center justify-between">
-                                    <div>
-                                        <h3 className="font-semibold text-blue-400">
-                                            Foydalanuvchi #{review.userId}
-                                        </h3>
+                <div className="rounded-xl border border-[#232428] bg-[#18191B] p-8 text-center text-gray-400">
+                    Yuklanmoqda...
+                </div>
+            </section>
+        );
+    }
 
-                                        <div className="mt-2 flex items-center gap-1">
-                                            {[1, 2, 3, 4, 5].map((star) => (
+    if (reviews.length === 0) {
+        return (
+            <section className="mt-12">
+                <h2 className="mb-6 text-3xl font-bold text-white">
+                    Kitob haqida izohlar
+                </h2>
+
+                <div className="rounded-xl border border-[#232428] bg-[#18191B] p-10 text-center text-gray-400">
+                    Hozircha izohlar mavjud emas
+                </div>
+            </section>
+        );
+    }
+
+    const visibleReviews = showAll
+        ? reviews
+        : reviews.slice(0, 3);
+
+    return (
+        <section className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl mt-12">
+            <h2 className="mb-6 text-3xl font-bold text-white">
+                Kitob haqida izohlar
+            </h2>
+
+            <div className="overflow-hidden rounded-xl border border-[#232428] bg-[#18191B]">
+                {visibleReviews.map((review, index) => (
+                    <div key={review.id} className={`p-5 ${index !== visibleReviews.length - 1 ? "border-b border-[#2A2B2F]" : ""}`}
+                    >
+                        <div className="flex justify-between">
+                            <div className="flex gap-3">
+                                <img
+                                    src="/user1.png"
+                                    alt="avatar"
+                                    width={48}
+                                    height={48}
+                                    className="rounded-full object-cover"
+                                />
+
+                                <div>
+                                    <h3 className="font-medium text-white">
+                                        User #{review.userId}
+                                    </h3>
+
+                                    <div className="mt-1 flex items-center gap-2">
+                                        <span className="text-xs text-gray-400">
+                                            {new Date(
+                                                review.date
+                                            ).toLocaleDateString(
+                                                "uz-UZ"
+                                            )}
+                                        </span>
+
+                                        <div className="flex">
+                                            {Array.from({
+                                                length: 5,
+                                            }).map((_, i) => (
                                                 <Star
-                                                    key={star}
-                                                    size={16}
+                                                    key={i}
+                                                    size={12}
+                                                    fill={
+                                                        i <
+                                                        Math.floor(
+                                                            Number(review.rating)
+                                                        )
+                                                            ? "#FACC15"
+                                                            : "none"
+                                                    }
                                                     className={
-                                                        star <= Math.round(review.rating)
-                                                            ? "fill-yellow-400 text-yellow-400"
-                                                            : "text-zinc-600"
+                                                        i <
+                                                        Math.floor(
+                                                            Number(review.rating)
+                                                        )
+                                                            ? "text-yellow-400"
+                                                            : "text-gray-600"
                                                     }
                                                 />
                                             ))}
                                         </div>
+
+                                        <span className="text-xs text-gray-400">
+                                            ({review.rating})
+                                        </span>
                                     </div>
-
-                                    <span className="text-sm text-gray-500">
-                    {formatDate(
-                        review.date ||
-                        review.createdAt ||
-                        review.updatedAt
-                    )}
-                  </span>
                                 </div>
-
-                                <p className="mt-4 whitespace-pre-line text-gray-300">
-                                    {review.comment || "Sharh qoldirilmagan"}
-                                </p>
                             </div>
-                        ))}
+
+                            <button>
+                                <MoreVertical
+                                    size={18}
+                                    className="text-gray-400 hover:text-white"
+                                />
+                            </button>
+                        </div>
+
+                        <p className="mt-4 text-sm leading-7 text-gray-300">
+                            {review.comment}
+                        </p>
                     </div>
-                )}
+                ))}
             </div>
+
+            {reviews.length > 3 && (
+                <div className="mt-6 flex justify-center">
+                    <button
+                        onClick={() => setShowAll(!showAll)}
+                        className="rounded-lg bg-[#232428] px-8 py-3 text-sm font-medium text-white transition hover:bg-[#2F3035]"
+                    >
+                        {showAll
+                            ? "Kamroq ko'rsatish"
+                            : "Barcha izohlar"}
+                    </button>
+                </div>
+            )}
         </section>
     );
 }

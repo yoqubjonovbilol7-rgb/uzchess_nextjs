@@ -78,7 +78,7 @@ export default async function Page({ params }: PageProps) {
                 <BookDetail book={book} />
 
                 <div className="mt-8">
-                    <BookReviews reviews={reviews} />
+                    <BookReviews/>
                 </div>
             </div>
 

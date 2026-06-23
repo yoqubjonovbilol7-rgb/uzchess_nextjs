@@ -59,7 +59,7 @@ export default function CourseReviews() {
 
     if (loading) {
         return (
-            <section className="mt-12">
+            <section className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl mt-12">
                 <h2 className="mb-6 text-3xl font-bold">
                     Kurs haqida izohlar
                 </h2>
@@ -133,16 +133,16 @@ export default function CourseReviews() {
                                             {Array.from({
                                                 length: 5,}).map((_, i) => (
                                                 <Star key={i} size={12}
-                                                    fill={
-                                                        i < Math.floor(Number(review.rating))
-                                                            ? "#FACC15"
-                                                            : "none"
-                                                    }
-                                                    className={
-                                                        i < Math.floor(Number(review.rating))
-                                                            ? "text-yellow-400"
-                                                            : "text-slate-600"
-                                                    }
+                                                      fill={
+                                                          i < Math.floor(Number(review.rating))
+                                                              ? "#FACC15"
+                                                              : "none"
+                                                      }
+                                                      className={
+                                                          i < Math.floor(Number(review.rating))
+                                                              ? "text-yellow-400"
+                                                              : "text-slate-600"
+                                                      }
                                                 />
                                             ))}
                                         </div>

@@ -66,7 +66,7 @@ export default function CourseDetail({ course }: Props) {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#070d14] text-white">
+        <div className="min-h-screen text-white">
             <div className="mx-auto max-w-7xl px-4 py-6">
 
                 <div className="relative h-[150px] overflow-hidden rounded-lg border border-[#1d2733]">
@@ -186,7 +186,7 @@ export default function CourseDetail({ course }: Props) {
 
                 <div className="mt-6 flex flex-col gap-6 lg:flex-row">
 
-                    <div className="flex-1">
+                    <div className="flex-1 bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl ">
                         <div className="overflow-hidden rounded-lg border border-[#1d2733] bg-[#121a24]">
 
                             <div className="border-b border-[#24303d]">
