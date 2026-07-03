@@ -1,52 +1,59 @@
 "use client";
 
 import { useState } from "react";
-import {ShoppingCart, Heart, Share2} from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Heart, Share2 } from "lucide-react";
 import Image from "next/image";
+import api from "@/lib/api";
+import { toggleSavedBook, isSavedBook } from "@/lib/saved";
 
 interface Props {
     book: any;
 }
 
 export default function BookDetail({ book }: Props) {
-    const [isLiked, setIsLiked] = useState<boolean>(book?.isLiked || false);
+    const router = useRouter();
+    const [isLiked, setIsLiked] = useState<boolean>(() => isSavedBook(book?.id) || (book?.isLiked ?? false));
     const [loading, setLoading] = useState<boolean>(false);
+    const [cartLoading, setCartLoading] = useState(false);
+    const [cartAdded, setCartAdded] = useState(false);
 
-    const user = null;
+    async function handleAddToCart() {
+        const token = localStorage.getItem("token");
+        if (!token) { router.push("/auth/sign-in"); return; }
+        if (cartLoading) return;
+        try {
+            setCartLoading(true);
+            await api.post("/public/cart", { target: "book", targetId: book.id, quantity: 1 });
+            setCartAdded(true);
+            window.dispatchEvent(new Event('cart-change'));
+        } catch (err) {
+            console.error("Cart error:", err);
+        } finally {
+            setCartLoading(false);
+        }
+    }
 
     const imageSrc = book?.image
         ? `http://localhost:3001/${book.image.replace(/\\/g, '/')}`
         : '/placeholder-book.png';
 
     const handleLikeToggle = async () => {
-        if (!user) {
-            alert("Iltimos, avval tizimga kiring (login qiling)!");
-            return;
-        }
-
+        const token = localStorage.getItem('token');
+        if (!token) { router.push('/auth/sign-in'); return; }
         if (loading) return;
-
+        setLoading(true);
         try {
-            setLoading(true);
-
-            const response = await fetch(`http://localhost:3001/public/book/like`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    bookId: book.id,
-                }),
+            await fetch(`http://localhost:3001/public/book-like/${book.id}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+                body: JSON.stringify({}),
             });
-
-            if (response.ok) {
-                setIsLiked(!isLiked);
-            } else {
-                console.error("Like amali bajarilmadi");
-            }
-            setLoading(false);
+            toggleSavedBook({ id: book.id, title: book.title, image: book.image, author: book.author?.fullName ? { fullName: book.author.fullName } : undefined, rating: book.rating });
+            setIsLiked(v => !v);
         } catch (error) {
-            console.error("Xatolik yuz berdi:", error);
+            console.error('Xatolik:', error);
+        } finally {
             setLoading(false);
         }
     };
@@ -61,7 +68,7 @@ export default function BookDetail({ book }: Props) {
                             alt={book.title}
                             height={300}
                             width={300}
-                            loading="eager"
+                            priority
                             style={{ width: 'auto' }}
                             className="h-[280px] object-cover rounded-2xl"
                         />
@@ -75,7 +82,7 @@ export default function BookDetail({ book }: Props) {
                         <span className="text-white text-4xl font-bold">
                             {book.newPrice || book.price} UZS
                         </span>
-                        {book.newPrice && (
+                        {Number(book.price) > 0 && Number(book.price) !== Number(book.newPrice) && (
                             <span className="line-through text-gray-500 text-xl">
                                 {book.price} UZS
                             </span>
@@ -102,9 +109,20 @@ export default function BookDetail({ book }: Props) {
                     </div>
 
                     <div className="flex items-center gap-4 mb-10">
-                        <button className="bg-sky-500 hover:bg-sky-600 px-8 py-3 rounded-xl flex items-center gap-3 text-white font-semibold transition-colors">
-                            <ShoppingCart size={20} />
-                            Savatchaga
+                        <button
+                            onClick={handleAddToCart}
+                            disabled={cartLoading}
+                            className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all disabled:opacity-50 bg-[#1A1D1F]"
+                        >
+                            <Image
+                                src={cartAdded ? "/cart add.png" : "/cart.png"}
+                                alt="cart"
+                                width={20}
+                                height={20}
+                            />
+                            <span className={cartAdded ? "text-white" : "text-[#2196F3]"}>
+                                Savatchaga
+                            </span>
                         </button>
 
                         <button

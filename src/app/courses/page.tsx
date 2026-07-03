@@ -22,6 +22,8 @@ interface Course {
     category?: { title: string; };
 }
 
+const PAGE_SIZE = 3;
+
 export default function CoursePage() {
     const [courses, setCourses] = useState<Course[]>([]);
     const [search, setSearch] = useState("");
@@ -30,7 +32,7 @@ export default function CoursePage() {
     const [selectedDifficulty, setSelectedDifficulty] = useState("");
     const [selectedRating, setSelectedRating] = useState(0);
 
-    const [visibleCount, setVisibleCount] = useState(4);
+    const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -49,27 +51,27 @@ export default function CoursePage() {
 
     const handleSearchChange = (value: string) => {
         setSearch(value);
-        setVisibleCount(4);
+        setVisibleCount(PAGE_SIZE);
     };
 
     const handleLanguageChange = (value: string) => {
         setSelectedLanguage(value);
-        setVisibleCount(4);
+        setVisibleCount(PAGE_SIZE);
     };
 
     const handleCategoryChange = (value: string) => {
         setSelectedCategory(value);
-        setVisibleCount(4);
+        setVisibleCount(PAGE_SIZE);
     };
 
     const handleDifficultyChange = (value: string) => {
         setSelectedDifficulty(value);
-        setVisibleCount(4);
+        setVisibleCount(PAGE_SIZE);
     };
 
     const handleRatingChange = (value: number) => {
         setSelectedRating(value);
-        setVisibleCount(4);
+        setVisibleCount(PAGE_SIZE);
     };
 
     const filteredCourses = courses.filter((course) => {
@@ -83,7 +85,7 @@ export default function CoursePage() {
     });
 
     return (
-        <div className="min-h-screen bg-[#0F1113]">
+        <div className="bg-black">
             <div className="w-full px-6 py-10 flex justify-center">
                 <div className="w-full max-w-[1450px] flex gap-6 items-start justify-between">
 
@@ -103,7 +105,7 @@ export default function CoursePage() {
 
                         {loading ? (
                             <div className="flex flex-col gap-4">
-                                {Array.from({ length: 4}).map((_, i) => (
+                                {Array.from({ length: PAGE_SIZE}).map((_, i) => (
                                     <div key={i} className="h-[180px] bg-[#1A1D21] rounded-2xl animate-pulse" />
                                 ))}
                             </div>
@@ -115,21 +117,27 @@ export default function CoursePage() {
                                     ))}
                                 </div>
 
-                                <div className="w-full flex justify-center mt-8">
-                                    <button
-                                        onClick={() => {
-                                            if (visibleCount >= filteredCourses.length && visibleCount > 5) {
-                                                setVisibleCount(4);
-                                                window.scrollTo({ top: 0, behavior: "smooth" });
-                                            } else {
-                                                setVisibleCount((prev) => prev + 4);
-                                            }
-                                        }}
-                                        className="px-6 py-2.5 bg-[#1A1D21] border border-[#2A2F36] text-[#B1B5C3] text-sm font-medium rounded-lg hover:bg-[#23262F] hover:text-white hover:border-[#2196F3] transition-all duration-300 cursor-pointer block"
-                                    >
-                                        {visibleCount >= filteredCourses.length && visibleCount > 4 ? "Kamroq" : "Ko‘proq"}
-                                    </button>
-                                </div>
+                                {filteredCourses.length > 0 && (() => {
+                                    const hasMore = visibleCount < filteredCourses.length;
+                                    const isExpanded = visibleCount > PAGE_SIZE;
+                                    return (
+                                        <div className="w-full flex justify-center mt-8">
+                                            <button
+                                                onClick={() => {
+                                                    if (hasMore) {
+                                                        setVisibleCount((prev) => prev + PAGE_SIZE);
+                                                    } else if (isExpanded) {
+                                                        setVisibleCount(PAGE_SIZE);
+                                                        window.scrollTo({ top: 0, behavior: "smooth" });
+                                                    }
+                                                }}
+                                                className="px-6 py-2.5 bg-[#1A1D21] border border-[#2A2F36] text-[#B1B5C3] text-sm font-medium rounded-lg hover:bg-[#23262F] hover:text-white hover:border-[#2196F3] transition-all duration-300 cursor-pointer block"
+                                            >
+                                                {hasMore || !isExpanded ? "Ko‘proq" : "Kamroq"}
+                                            </button>
+                                        </div>
+                                    );
+                                })()}
                             </>
                         ) : (
                             <div className="flex flex-col items-center justify-center py-20">
@@ -138,7 +146,8 @@ export default function CoursePage() {
                                     alt="not found"
                                     width={300}
                                     height={300}
-                                    className="h-auto opacity-40"
+                                    style={{ width: '300px', height: '300px' }}
+                                    className="opacity-40"
                                 />
                             </div>
                         )}
@@ -151,10 +160,9 @@ export default function CoursePage() {
                             src="/Donation.png"
                             alt="Loyiha rivojiga hissa"
                             width={300}
-                            height={300}
-                            loading="eager"
-                            className="w-full h-auto object-cover rounded-2xl"
-                            style={{ width: '100%', height: 'auto' }}
+                            height={75}
+                            className="w-full h-auto rounded-2xl object-cover"
+                            unoptimized
                         />
                     </div>
 

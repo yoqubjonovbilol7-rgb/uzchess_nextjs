@@ -26,6 +26,8 @@ interface Book {
     category?: { title: string };
 }
 
+const PAGE_SIZE = 3;
+
 export default function BookPage() {
     const [books, setBooks] = useState<Book[]>([]);
     const [search, setSearch] = useState("");
@@ -35,7 +37,7 @@ export default function BookPage() {
     const [selectedDifficulty, setSelectedDifficulty] = useState("");
     const [selectedRating, setSelectedRating] = useState(0);
 
-    const [visibleCount, setVisibleCount] = useState(5);
+    const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -56,27 +58,27 @@ export default function BookPage() {
 
     const handleSearchChange = (value: string) => {
         setSearch(value);
-        setVisibleCount(5);
+        setVisibleCount(PAGE_SIZE);
     };
 
     const handleLanguageChange = (value: string) => {
         setSelectedLanguage(value);
-        setVisibleCount(5);
+        setVisibleCount(PAGE_SIZE);
     };
 
     const handleCategoryChange = (value: string) => {
         setSelectedCategory(value);
-        setVisibleCount(5);
+        setVisibleCount(PAGE_SIZE);
     };
 
     const handleDifficultyChange = (value: string) => {
         setSelectedDifficulty(value);
-        setVisibleCount(5);
+        setVisibleCount(PAGE_SIZE);
     };
 
     const handleRatingChange = (value: number) => {
         setSelectedRating(value);
-        setVisibleCount(5);
+        setVisibleCount(PAGE_SIZE);
     };
 
     const filteredBooks = (books || []).filter((book) => {
@@ -89,7 +91,7 @@ export default function BookPage() {
     });
 
     return (
-        <div className="min-h-screen">
+        <div>
             <div className="w-full px-6 py-10 flex justify-center">
                 <div className="w-full max-w-[1450px] flex gap-6 items-start justify-between">
 
@@ -121,25 +123,31 @@ export default function BookPage() {
                                     ))}
                                 </div>
 
-                                <div className="w-full flex justify-center mt-8">
-                                    <button
-                                        onClick={() => {
-                                            if (visibleCount >= filteredBooks.length && visibleCount > 5) {
-                                                setVisibleCount(5);
-                                                window.scrollTo({ top: 0, behavior: "smooth" });
-                                            } else {
-                                                setVisibleCount((prev) => prev + 5);
-                                            }
-                                        }}
-                                        className="px-6 py-2.5 bg-[#1A1D21] border border-[#2A2F36] text-[#B1B5C3] text-sm font-medium rounded-lg hover:bg-[#23262F] hover:text-white hover:border-[#2196F3] transition-all duration-300 cursor-pointer block"
-                                    >
-                                        {visibleCount >= filteredBooks.length && visibleCount > 5 ? "Kamroq" : "Ko‘proq"}
-                                    </button>
-                                </div>
+                                {filteredBooks.length > 0 && (() => {
+                                    const hasMore = visibleCount < filteredBooks.length;
+                                    const isExpanded = visibleCount > 5;
+                                    return (
+                                        <div className="w-full flex justify-center mt-8">
+                                            <button
+                                                onClick={() => {
+                                                    if (hasMore) {
+                                                        setVisibleCount((prev) => prev + 5);
+                                                    } else if (isExpanded) {
+                                                        setVisibleCount(PAGE_SIZE);
+                                                        window.scrollTo({ top: 0, behavior: "smooth" });
+                                                    }
+                                                }}
+                                                className="px-6 py-2.5 bg-[#1A1D21] border border-[#2A2F36] text-[#B1B5C3] text-sm font-medium rounded-lg hover:bg-[#23262F] hover:text-white hover:border-[#2196F3] transition-all duration-300 cursor-pointer block"
+                                            >
+                                                {hasMore || !isExpanded ? "Ko‘proq" : "Kamroq"}
+                                            </button>
+                                        </div>
+                                    );
+                                })()}
                             </>
                         ) : (
                             <div className="flex flex-col items-center justify-center py-20">
-                                <Image src="/Frame.png" alt="not found" width={300} height={300} className="h-auto opacity-40" />
+                                <Image src="/Frame.png" alt="not found" width={300} height={300} style={{ width: '300px', height: '300px' }} className="opacity-40" />
                             </div>
                         )}
                     </div>
@@ -150,7 +158,7 @@ export default function BookPage() {
                             src="/Lenta.png"
                             alt="Loyiha rivojiga hissa"
                             width={300}
-                            height={300}
+                            height={414}
                             loading="eager"
                             className="w-full h-auto object-cover cursor-pointer"
                             style={{ width: '100%', height: 'auto' }}

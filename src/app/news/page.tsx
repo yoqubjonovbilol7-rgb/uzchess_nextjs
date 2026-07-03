@@ -41,10 +41,10 @@ export default function NewsPage() {
                     ? newsResponse.data.data
                     : [];
 
-                const fixedNews = newsData.map((item: News) => ({
+                const fixedNews = newsData.map((item: News & { createdAt?: string }) => ({
                     id: item.id,
                     title: item.title,
-                    date: item.date,
+                    date: item.date || item.createdAt || '',
                     image: item.image,
                 }));
                 setNews(fixedNews);
@@ -74,7 +74,7 @@ export default function NewsPage() {
 
 
     return (
-        <div className="container mx-auto flex flex-col lg:flex-row gap-6 px-4 py-6 flex-1">
+        <div className="container mx-auto flex flex-col lg:flex-row gap-6 px-4 py-6">
 
             <section className="flex-1">
 
@@ -127,8 +127,7 @@ export default function NewsPage() {
                     <div className="flex flex-col items-center justify-center py-20">
                         <Image src="/Frame.png" alt="not found"
                                width={300} height={300}
-                               className="w-[250px] sm:w-[300px] h-auto object-contain"
-                               style={{ width: 'auto', height: 'auto' }} />
+                               style={{ width: '300px', height: '300px' }} className="opacity-40" />
                     </div>
                 )}
 

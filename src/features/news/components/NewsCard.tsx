@@ -28,21 +28,20 @@ export default function NewsCard({id, image, date, title,}: NewsItemProps) {
     ];
 
     const formattedDate = !isNaN(newsDate.getTime())
-        ? `${newsDate.getDate()} ${
-            months[newsDate.getMonth()]
-        }, ${newsDate.getFullYear()}`
+        ? `${months[newsDate.getMonth()]} ${newsDate.getDate()}, ${newsDate.getFullYear()}`
         : date;
 
     return (
         <article className="bg-[#0D0D0D] rounded-[12px] p-3 flex flex-col gap-3 border border-[#23262F] hover:border-[#2EA6FF] transition-all duration-300">
-            <Image
-                src={image}
-                alt={"image not found"}
-                width={400}
-                height={140}
-                className="w-full h-auto object-cover rounded-[8px]"
-                style={{ width: '100%', height: 'auto' }}
-            />
+            <div className="relative w-full rounded-[8px] overflow-hidden" style={{ height: '140px' }}>
+                <Image
+                    src={image}
+                    alt="news"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                />
+            </div>
 
             <section className="flex flex-col gap-2">
                 <p className="text-[#6F767E] text-[11px]">

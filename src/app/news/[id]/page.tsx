@@ -98,7 +98,7 @@ export default async function NewsDetailPage({ params }: Props) {
         : null;
 
     return (
-        <div className="min-h-screen bg-[#0E1118] text-white">
+        <div className="min-h-screen bg-black text-white">
             <div className="max-w-7xl mx-auto px-4 py-6 flex gap-8 items-start">
                 <div className="w-full max-w-3xl mx-auto">
 
@@ -230,9 +230,10 @@ export default async function NewsDetailPage({ params }: Props) {
                         src="/Donation.png"
                         alt="Loyiha rivojiga hissa"
                         width={300}
-                        height={300}
+                        height={75}
                         loading="eager"
-                        className="w-full h-auto object-cover rounded-2xl"
+                        style={{ width: '100%', height: 'auto' }}
+                        className="object-cover rounded-2xl"
                     />
                     <YouthCard />
                 </div>

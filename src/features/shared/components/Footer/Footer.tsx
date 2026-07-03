@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Footer() {
 
     return (
@@ -29,11 +31,14 @@ export default function Footer() {
                     mb-6
                 ">
 
-                    <img
-                        src="/Group.png"
-                        alt="UzChess"
-                        className="w-[80px]"
-                    />
+                   <div className="relative w-24 h-24">
+                        <Image
+                            src="/Group.png"
+                            alt="UzChess"
+                            fill
+                            style={{ objectFit: 'contain' }}
+                        />
+                    </div>
 
                 </div>
 
@@ -80,46 +85,56 @@ export default function Footer() {
 
                     <a href="https://t.me/uzchesss">
 
-                        <img
+                        <Image
                             src="/telegram.png"
                             alt="Telegram"
-                            className="w-6 h-6 hover:opacity-80 transition " />
+                            width={24}
+                            height={24}
+                            className="hover:opacity-80 transition" />
 
                     </a>
 
                     <a href="https://instagram.com/uzchesss">
 
-                        <img
+                        <Image
                             src="/instagram.png"
                             alt="Instagram"
-                            className="w-6 h-6 hover:opacity-80 transition " />
+                            width={24}
+                            height={24}
+                            className="hover:opacity-80 transition" />
 
                     </a>
 
                     <a href="http://youtube.com/@uzchesss">
 
-                        <img
+                        <Image
                             src="/youtube.png"
                             alt="YouTube"
-                            className="w-6 h-6 hover:opacity-80 transition " />
+                            width={24}
+                            height={24}
+                            className="hover:opacity-80 transition" />
 
                     </a>
 
                     <a href="https://www.facebook.com/uzchessofficial/">
 
-                        <img
+                        <Image
                             src="/facebook.png"
                             alt="Facebook"
-                            className="w-6 h-6 hover:opacity-80 transition " />
+                            width={24}
+                            height={24}
+                            className="hover:opacity-80 transition" />
 
                     </a>
 
                     <a href="https://x.com/Uzchesss">
 
-                        <img
+                        <Image
                             src="/twitter.png"
                             alt="Twitter"
-                            className="w-6 h-6 hover:opacity-80 transition " />
+                            width={24}
+                            height={24}
+                            className="hover:opacity-80 transition" />
 
                     </a>
 
