@@ -10,7 +10,7 @@ const BASE = 'http://localhost:3001';
 const OTP_LEN = 6;
 const RESEND_SEC = 120;
 
-interface UserProfile { fullName?: string; avatar?: string; login?: string; phone?: string; email?: string; birthDate?: string; }
+interface UserProfile { id?: number; fullName?: string; avatar?: string; login?: string; phone?: string; email?: string; birthDate?: string; }
 
 function Modal({ onClose, children }: { onClose: () => void; children: React.ReactNode }) {
     return (
@@ -250,6 +250,7 @@ export default function ProfileSettings() {
     const [editName,   setEditName]   = useState('');
     const [editBirth,  setEditBirth]  = useState('');
     const [editAvatar, setEditAvatar] = useState<string | undefined>(undefined);
+    const [editAvatarFile, setEditAvatarFile] = useState<File | null>(null);
     const [editErr,    setEditErr]    = useState('');
     const [editLoad,   setEditLoad]   = useState(false);
     const avatarRef = useRef<HTMLInputElement>(null);
@@ -257,6 +258,7 @@ export default function ProfileSettings() {
     function handleAvatarChange(e: React.ChangeEvent<HTMLInputElement>) {
         const file = e.target.files?.[0];
         if (!file) return;
+        setEditAvatarFile(file);
         const reader = new FileReader();
         reader.onload = ev => setEditAvatar(ev.target?.result as string);
         reader.readAsDataURL(file);
@@ -278,8 +280,10 @@ export default function ProfileSettings() {
         const token = tok();
         if (!token) { router.push('/auth/sign-in'); return; }
         try {
+            const payload = JSON.parse(atob(token.split('.')[1]));
             const raw = localStorage.getItem('user');
-            setUser(raw ? JSON.parse(raw) : { login: JSON.parse(atob(token.split('.')[1])).login ?? '' });
+            const stored: UserProfile = raw ? JSON.parse(raw) : {};
+            setUser({ ...stored, id: payload.id, login: stored.login ?? payload.login ?? '' });
         } catch { router.push('/auth/sign-in'); }
         setLoading(false);
     }, [router]);
@@ -294,14 +298,31 @@ export default function ProfileSettings() {
         window.dispatchEvent(new Event('auth-change')); router.push('/');
     }
 
-    function saveProfile(e: React.FormEvent) {
+    async function saveProfile(e: React.FormEvent) {
         e.preventDefault();
         if (!editName.trim()) { setEditErr('Ism-sharifingizni kiriting'); return; }
-        setEditLoad(true);
-        const updated: UserProfile = { ...(user ?? {}), fullName: editName.trim(), birthDate: editBirth || undefined, avatar: editAvatar };
-        localStorage.setItem('user', JSON.stringify(updated));
-        setUser(updated); window.dispatchEvent(new Event('auth-change'));
-        setShowEdit(false); setEditLoad(false);
+        if (!user?.id) { setEditErr('Foydalanuvchi topilmadi'); return; }
+        setEditLoad(true); setEditErr('');
+        try {
+            const form = new FormData();
+            form.append('fullName', editName.trim());
+            if (editBirth) form.append('birthDate', editBirth);
+            if (editAvatarFile) form.append('profileImage', editAvatarFile);
+
+            const res = await api.patch(`/admin/users/${user.id}`, form);
+            const payload = res.data?.data ?? res.data;
+            const avatar = payload?.profileImage
+                ? `${BASE}/${String(payload.profileImage).replace(/\\/g, '/')}`
+                : editAvatar;
+            const birthDate = payload?.birthDate ?? (editBirth || undefined);
+            const updated: UserProfile = { ...user, fullName: editName.trim(), birthDate, avatar };
+            localStorage.setItem('user', JSON.stringify(updated));
+            setUser(updated); window.dispatchEvent(new Event('auth-change'));
+            setShowEdit(false);
+        } catch (err: unknown) {
+            if (axios.isAxiosError(err)) setEditErr(err.response?.data?.message ?? 'Xatolik yuz berdi');
+            else setEditErr('Xatolik yuz berdi');
+        } finally { setEditLoad(false); }
     }
 
     async function sendPwdOtp(e: React.FormEvent) {
@@ -397,7 +418,7 @@ export default function ProfileSettings() {
                             Chiqish
                         </button>
                     </div>
-                    <button onClick={() => { setEditName(user?.fullName ?? ''); setEditBirth(user?.birthDate ?? ''); setEditAvatar(user?.avatar); setEditErr(''); setShowEdit(true); }}
+                    <button onClick={() => { setEditName(user?.fullName ?? ''); setEditBirth(user?.birthDate ?? ''); setEditAvatar(user?.avatar); setEditAvatarFile(null); setEditErr(''); setShowEdit(true); }}
                         className="w-full text-left flex rounded-xl overflow-hidden bg-[#0D1117] border border-[#1F2937] hover:border-white transition-colors">
                         {isEmail ? (
                             <>
@@ -499,7 +520,7 @@ export default function ProfileSettings() {
                             {editAvatar && (
                                 <button type="button"
                                     className="text-xs mt-2 text-[#6B7280] hover:text-[#EF4444] transition-colors"
-                                    onClick={() => { setEditAvatar(undefined); if (avatarRef.current) avatarRef.current.value = ''; }}>
+                                    onClick={() => { setEditAvatar(undefined); setEditAvatarFile(null); if (avatarRef.current) avatarRef.current.value = ''; }}>
                                     O&apos;chirish
                                 </button>
                             )}

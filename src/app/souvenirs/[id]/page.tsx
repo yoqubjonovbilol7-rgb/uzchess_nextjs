@@ -9,6 +9,12 @@ import { toggleSavedSouvenir, isSavedSouvenir } from '@/lib/saved';
 
 const BASE = 'http://localhost:3001';
 
+function resolveAvatar(path?: string) {
+    if (!path) return undefined;
+    if (/^https?:\/\//.test(path)) return path;
+    return `${BASE}/${String(path).replace(/\\/g, '/')}`;
+}
+
 interface SouvenirImage { id: number; image: string; }
 interface Color { id?: number; title?: string; color?: string; }
 interface SouvenirColor { id: number; souvenirId?: number; colorId?: number; colors?: Color; }
@@ -18,7 +24,7 @@ interface Review {
     rating: string | number;
     comment: string;
     date?: string;
-    user?: { fullName?: string; image?: string };
+    user?: { fullName?: string; image?: string; profileImage?: string; avatar?: string };
     souvenir?: { id?: number };
 }
 
@@ -271,11 +277,12 @@ export default function SouvenirDetailPage() {
                             {reviews.map((review, index) => {
                                 const name = review.user?.fullName ?? `Foydalanuvchi ${review.userId}`;
                                 const initials = name.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+                                const avatarUrl = resolveAvatar(review.user?.image ?? review.user?.profileImage ?? review.user?.avatar);
                                 return (
                                     <div key={review.id} className={`p-5 ${index !== reviews.length - 1 ? 'border-b border-[#2A2B2F]' : ''}`}>
                                         <div className="flex gap-3">
-                                            {review.user?.image ? (
-                                                <img src={review.user.image} alt="avatar" className="w-10 h-10 rounded-full object-cover shrink-0" />
+                                            {avatarUrl ? (
+                                                <img src={avatarUrl} alt="avatar" className="w-10 h-10 rounded-full object-cover shrink-0" />
                                             ) : (
                                                 <div className="w-10 h-10 rounded-full bg-[#2196F3] flex items-center justify-center text-white text-sm font-bold shrink-0">
                                                     {initials}

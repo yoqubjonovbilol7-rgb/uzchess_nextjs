@@ -6,6 +6,12 @@ import api from "@/lib/api";
 
 const BASE = 'http://localhost:3001';
 
+function resolveAvatar(path?: string) {
+    if (!path) return undefined;
+    if (/^https?:\/\//.test(path)) return path;
+    return `${BASE}/${String(path).replace(/\\/g, '/')}`;
+}
+
 interface ReportCategory { id: number; title: string; order?: number; }
 
 interface CourseReview {
@@ -15,9 +21,11 @@ interface CourseReview {
     rating: string;
     comment: string;
     date: string;
-    user?: { id?: number; fullName?: string; avatar?: string; };
+    user?: { id?: number; fullName?: string; avatar?: string; image?: string; profileImage?: string; };
     fullName?: string;
     avatar?: string;
+    image?: string;
+    profileImage?: string;
 }
 
 interface ReviewResponse {
@@ -139,7 +147,10 @@ export default function CourseReviews() {
 
                 <div className="overflow-hidden rounded-xl border border-[#1d2733] bg-[#121a24]">
                     {visibleReviews.map((review, index) => {
-                        const avatarUrl = review.user?.avatar ?? review.avatar;
+                        const avatarUrl = resolveAvatar(
+                            review.user?.avatar ?? review.user?.image ?? review.user?.profileImage
+                            ?? review.avatar ?? review.image ?? review.profileImage
+                        );
                         const name = review.user?.fullName ?? review.fullName ?? `Foydalanuvchi ${review.userId}`;
                         const initials = name.split(" ").map((w: string) => w[0]).slice(0, 2).join("").toUpperCase();
 

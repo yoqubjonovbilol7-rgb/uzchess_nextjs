@@ -5,39 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b28adf-8a23-44b5-8ec0-4f9e8e9a09c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/Board.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Certificate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Frame 10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Frame 427318502.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Frame 9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/cart add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/reklama.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/carts/components/Cart-from.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/carts/components/CartItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/carts/components/CartSummary.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/carts/components/OrderSuccessModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../homework" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/courses/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/courses/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/courses/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/courses/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/library/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/library/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/main/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/main/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/news/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/news/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/news/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/news/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/course/components/CourseCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/course/components/CourseCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/course/components/CourseDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/course/components/CourseDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/souvenirs/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/souvenirs/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/course/components/CourseReviews.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/course/components/CourseReviews.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/library/components/BookCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/library/components/BookCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/library/components/BookDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/library/components/BookDetail.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/library/components/BookReviews.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/library/components/BookReviews.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/news/components/NewsCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/news/components/NewsCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/shared/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/shared/components/Footer/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/shared/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/shared/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/shared/components/YouthCard/YouthCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/shared/components/YouthCard/YouthCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/profile/components/ProfileSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/profile/components/ProfileSettings.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess_react/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess_react/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess_react/eslint.config.js" beforeDir="false" />
@@ -206,6 +180,9 @@
       <workItem from="1782706675004" duration="7502000" />
       <workItem from="1782719152609" duration="50413000" />
       <workItem from="1782894781477" duration="13365000" />
+      <workItem from="1783074201878" duration="2364000" />
+      <workItem from="1783327921179" duration="501000" />
+      <workItem from="1783331950680" duration="2348000" />
     </task>
     <servers />
   </component>
