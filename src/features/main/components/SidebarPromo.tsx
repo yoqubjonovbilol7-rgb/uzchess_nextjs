@@ -21,6 +21,7 @@ export default function SidebarPromo() {
                     alt="Yoshlar portali"
                     width={265}
                     height={156}
+                    loading="eager"
                     className="w-full h-auto block"
                     style={{ width: '100%', height: 'auto' }}
                 />

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
@@ -26,13 +27,16 @@ interface Props {
 function TypeBadge({ type }: { type: string }) {
     const t = type.toLowerCase();
     const cfg =
-        t === 'rapid'  ? { label: 'Rapid',  cls: 'text-red-400',    icon: '♟️' } :
-        t === 'blitz'  ? { label: 'Blitz',  cls: 'text-yellow-400', icon: '⚡' } :
-        t === 'bullet' ? { label: 'Bullet', cls: 'text-green-400',  icon: '🚀' } :
-                         { label: type,     cls: 'text-blue-400',   icon: '♔'  };
+        t === 'rapid'  ? { label: 'Rapid',  cls: 'text-red-400',    iconSrc: '/icons8-running-rabbit.15 1.png' } :
+        t === 'blitz'  ? { label: 'Blitz',  cls: 'text-yellow-400', iconSrc: '/Frame1.png' } :
+        t === 'bullet' ? { label: 'Bullet', cls: 'text-green-400',  iconSrc: '/Frame2.png' } :
+                         { label: type,     cls: 'text-blue-400',   emoji: '♔' };
     return (
         <span className={`flex items-center gap-1 text-xs font-medium whitespace-nowrap ${cfg.cls}`}>
-            <span>{cfg.icon}</span>{cfg.label}
+            {cfg.iconSrc
+                ? <Image src={cfg.iconSrc} alt="" width={14} height={14} className="w-3.5 h-3.5" unoptimized />
+                : <span>{cfg.emoji}</span>}
+            {cfg.label}
         </span>
     );
 }

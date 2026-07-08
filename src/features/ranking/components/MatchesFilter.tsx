@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 
-interface Country { id: number; title: string; }
+interface Country { title: string; }
 
 interface Props {
     countryId: string;
@@ -29,10 +29,10 @@ export default function MatchesFilter({ countryId, setCountryId, age, setAge, on
                 src="/Frame 9.png"
                 alt="O'yinlar"
                 width={280}
-                height={0}
+                height={86}
                 loading="eager"
                 className="w-full rounded-2xl"
-                style={{ height: 'auto' }}
+                style={{ width: '100%', height: 'auto' }}
                 unoptimized
             />
 
@@ -51,7 +51,7 @@ export default function MatchesFilter({ countryId, setCountryId, age, setAge, on
                                 className="w-full h-[48px] bg-[#232627] border border-[#2A2F36] rounded-xl px-4 pr-10 text-white outline-none text-sm appearance-none cursor-pointer"
                             >
                                 <option value="">Barchasi</option>
-                                {countries.map(c => <option key={c.id} value={String(c.id)}>{c.title}</option>)}
+                                {countries.map(c => <option key={c.title} value={c.title}>{c.title}</option>)}
                             </select>
                             <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />

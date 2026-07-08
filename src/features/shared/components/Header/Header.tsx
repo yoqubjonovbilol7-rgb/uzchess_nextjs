@@ -8,6 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import AuthModal from "@/features/shared/components/AuthModal/AuthModal";
 import Breadcrumb from "@/features/shared/components/Breadcrumb/Breadcrumb";
+import NotificationsPanel from "@/features/shared/components/Header/NotificationsPanel";
 import { X, GraduationCap, BookOpen } from "lucide-react";
 import api from "@/lib/api";
 
@@ -64,6 +65,7 @@ export default function Header() {
   const [profileOpen, setProfileOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
   const [cartCount, setCartCount] = useState(0);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
 
   const pathname = usePathname() || "";
   const router = useRouter();
@@ -356,9 +358,9 @@ export default function Header() {
                 )}
               </Link>
 
-              <Link href="/notifications">
+              <button onClick={() => setNotificationsOpen(true)} className="cursor-pointer">
                 <Image src="/bell.png" alt="bell" width={20} height={20} className="opacity-80 hover:opacity-100 transition" />
-              </Link>
+              </button>
 
               <div className="w-px h-6 bg-[#2A2A2A]" />
 
@@ -425,6 +427,8 @@ export default function Header() {
       {showAuthModal && (
         <AuthModal onClose={() => setShowAuthModal(false)} />
       )}
+
+      <NotificationsPanel open={notificationsOpen} onClose={() => setNotificationsOpen(false)} />
 
       {/* Sahifani hira qiluvchi orqa fon — portal orqali sticky div tashqarisida */}
       {searchOpen && mounted && createPortal(

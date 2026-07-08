@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b28adf-8a23-44b5-8ec0-4f9e8e9a09c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/Frame 427319298.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Frame 427319300.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Frame1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Frame2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons8-running-rabbit.15 1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../homework" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/souvenirs/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/souvenirs/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/course/components/CourseReviews.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/course/components/CourseReviews.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/library/components/BookReviews.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/library/components/BookReviews.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/profile/components/ProfileSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/profile/components/ProfileSettings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/main/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/main/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/ranking/matches/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ranking/matches/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/main/components/ChessComBanner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/components/ChessComBanner.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/main/components/SidebarPromo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/components/SidebarPromo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/main/components/UpcomingGames.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/components/UpcomingGames.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/ranking/components/MatchesFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ranking/components/MatchesFilter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/ranking/components/RankingFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ranking/components/RankingFilter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/shared/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/shared/components/Header/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess_react/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess_react/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../uzchess_react/eslint.config.js" beforeDir="false" />
@@ -182,7 +192,9 @@
       <workItem from="1782894781477" duration="13365000" />
       <workItem from="1783074201878" duration="2364000" />
       <workItem from="1783327921179" duration="501000" />
-      <workItem from="1783331950680" duration="2348000" />
+      <workItem from="1783331950680" duration="2715000" />
+      <workItem from="1783342796537" duration="6252000" />
+      <workItem from="1783497468187" duration="3663000" />
     </task>
     <servers />
   </component>

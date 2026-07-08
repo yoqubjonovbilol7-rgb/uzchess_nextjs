@@ -44,14 +44,11 @@ interface RawMatchPlayer {
     classic?: number | null;
     rapid?: number | null;
     blitz?: number | null;
-    country?: { title: string; flag?: string; };
 }
 
 interface RawMatch {
     id: number;
-    firstPlayer?:       RawMatchPlayer;
     firstPlayerResult:  number;
-    secondPlayer?:      RawMatchPlayer;
     secondPlayerResult: number;
     type: string;
     moves: number;
@@ -65,13 +62,13 @@ function getRating(p: RawMatchPlayer, type: string): number | undefined {
     return p.blitz ?? undefined;
 }
 
-function matchToGame(m: RawMatch): Game {
+function matchToGame(m: RawMatch, p1?: RawMatchPlayer, p2?: RawMatchPlayer): Game {
     return {
         id:       m.id,
-        p1:       m.firstPlayer?.fullName ?? "O'yinchi 1",
-        p1Rating: m.firstPlayer ? getRating(m.firstPlayer,  m.type) : undefined,
-        p2:       m.secondPlayer?.fullName ?? "O'yinchi 2",
-        p2Rating: m.secondPlayer ? getRating(m.secondPlayer, m.type) : undefined,
+        p1:       p1?.fullName ?? "O'yinchi 1",
+        p1Rating: p1 ? getRating(p1, m.type) : undefined,
+        p2:       p2?.fullName ?? "O'yinchi 2",
+        p2Rating: p2 ? getRating(p2, m.type) : undefined,
         p1Score:  m.firstPlayerResult,
         p2Score:  m.secondPlayerResult,
         result:   `${m.firstPlayerResult}-${m.secondPlayerResult}`,
@@ -150,7 +147,28 @@ export default function HomePage() {
             try {
                 const mRes = await api.get('/public/matches');
                 const md = toArr<RawMatch>(mRes.data);
-                setGames(md.map(matchToGame));
+
+                const ids = await Promise.all(md.map(async m => {
+                    try {
+                        const dr = await api.get(`/public/matches/${m.id}`);
+                        return { firstPlayerId: dr.data?.firstPlayer as number | undefined, secondPlayerId: dr.data?.secondPlayer as number | undefined };
+                    } catch { return {}; }
+                }));
+
+                const playerIds = [...new Set(ids.flatMap(x => [x.firstPlayerId, x.secondPlayerId]).filter((v): v is number => !!v))];
+                const playerMap = new Map<number, RawMatchPlayer>();
+                await Promise.all(playerIds.map(async pid => {
+                    try {
+                        const pr = await api.get(`/public/player/${pid}`);
+                        playerMap.set(pid, pr.data);
+                    } catch {}
+                }));
+
+                setGames(md.map((m, i) => matchToGame(
+                    m,
+                    ids[i].firstPlayerId  != null ? playerMap.get(ids[i].firstPlayerId!)  : undefined,
+                    ids[i].secondPlayerId != null ? playerMap.get(ids[i].secondPlayerId!) : undefined,
+                )));
             } catch {
                 setGames([]);
             } finally {

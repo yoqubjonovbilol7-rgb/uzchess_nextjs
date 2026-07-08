@@ -9,6 +9,7 @@ export default function ChessComBanner() {
                 alt="Reklama"
                 width={900}
                 height={120}
+                loading="eager"
                 style={{ width: '100%', height: 'auto' }}
                 unoptimized
             />

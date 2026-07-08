@@ -10,7 +10,7 @@ const UZ_MONTHS = ['Yanvar','Fevral','Mart','Aprel','May','Iyun','Iyul','Avgust'
 function formatDate(s: string): string {
     try {
         const d = new Date(s);
-        return `${d.getDate()} ${UZ_MONTHS[d.getMonth()]}, ${d.getFullYear()}`;
+        return `${d.getDate()} ${UZ_MONTHS[d.getMonth()]}`;
     } catch { return s; }
 }
 
@@ -46,9 +46,10 @@ type SortOrder  = 'asc' | 'desc';
 
 function CountryFlag({ flag, title }: { flag?: string; title?: string }) {
     if (!flag) return null;
-    if (flag.startsWith('http') || flag.startsWith('/'))
-        return <img src={flag} alt={title ?? ''} className="w-5 h-3.5 object-cover rounded-sm inline-block ml-1.5 flex-shrink-0" />;
-    return <span className="ml-1 text-sm">{flag}</span>;
+    const src = flag.startsWith('http')
+        ? flag
+        : `http://localhost:3001/${flag.replace(/\\/g, '/')}`;
+    return <img src={src} alt={title ?? ''} className="w-5 h-3.5 object-cover rounded-sm inline-block ml-1.5 flex-shrink-0" />;
 }
 
 function TrophyIcon({ gold }: { gold: boolean }) {
@@ -60,16 +61,19 @@ function TrophyIcon({ gold }: { gold: boolean }) {
 }
 
 function TypeBadge({ type }: { type: string }) {
-    const map: Record<string, { label: string; cls: string; icon: string }> = {
-        rapid:   { label: 'Rapid',    cls: 'text-red-400 bg-red-500/10',       icon: '♟️' },
-        blitz:   { label: 'Blitz',    cls: 'text-yellow-400 bg-yellow-500/10', icon: '⚡' },
-        bullet:  { label: 'Bullet',   cls: 'text-green-400 bg-green-500/10',   icon: '🚀' },
-        classic: { label: 'Klassika', cls: 'text-blue-400 bg-blue-500/10',     icon: '♔'  },
+    const map: Record<string, { label: string; cls: string; iconSrc?: string; emoji?: string }> = {
+        rapid:   { label: 'Rapid',    cls: 'text-red-400 bg-red-500/10',       iconSrc: '/icons8-running-rabbit.15 1.png' },
+        blitz:   { label: 'Blitz',    cls: 'text-yellow-400 bg-yellow-500/10', iconSrc: '/Frame1.png' },
+        bullet:  { label: 'Bullet',   cls: 'text-green-400 bg-green-500/10',   iconSrc: '/Frame2.png' },
+        classic: { label: 'Klassika', cls: 'text-blue-400 bg-blue-500/10',     emoji: '♔' },
     };
-    const c = map[type] ?? { label: type, cls: 'text-gray-400 bg-gray-500/10', icon: '♟️' };
+    const c = map[type] ?? { label: type, cls: 'text-gray-400 bg-gray-500/10', emoji: '♟️' };
     return (
         <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap ${c.cls}`}>
-            <span>{c.icon}</span>{c.label}
+            {c.iconSrc
+                ? <Image src={c.iconSrc} alt="" width={16} height={16} className="w-4 h-4" unoptimized />
+                : <span>{c.emoji}</span>}
+            {c.label}
         </span>
     );
 }
@@ -151,7 +155,39 @@ export default function MatchesPage() {
         try {
             const res = await axios.get(`http://localhost:3001/public/matches?page=${page}`);
             const d = res.data;
-            setMatches(d.data ?? d ?? []);
+            const raw: Omit<Match, 'firstPlayer' | 'secondPlayer'>[] = d.data ?? d ?? [];
+
+            const ids = await Promise.all(raw.map(async m => {
+                try {
+                    const dr = await axios.get(`http://localhost:3001/public/matches/${m.id}`);
+                    return { firstPlayerId: dr.data?.firstPlayer as number | undefined, secondPlayerId: dr.data?.secondPlayer as number | undefined };
+                } catch { return {}; }
+            }));
+
+            const playerIds = [...new Set(ids.flatMap(x => [x.firstPlayerId, x.secondPlayerId]).filter((v): v is number => !!v))];
+            const playerMap = new Map<number, MatchPlayer>();
+            await Promise.all(playerIds.map(async pid => {
+                try {
+                    const pr = await axios.get(`http://localhost:3001/public/player/${pid}`);
+                    const p = pr.data;
+                    let country: Country | undefined;
+                    if (p.countryId) {
+                        try {
+                            const cr = await axios.get(`http://localhost:3001/public/country/${p.countryId}`);
+                            country = { id: p.countryId, title: cr.data?.title, flag: cr.data?.flag };
+                        } catch {}
+                    }
+                    playerMap.set(pid, { id: p.id, fullName: p.fullName, image: p.image, classic: p.classic, rapid: p.rapid, blitz: p.blitz, country });
+                } catch {}
+            }));
+
+            const enriched: Match[] = raw.map((m, i) => ({
+                ...m,
+                firstPlayer:  ids[i].firstPlayerId  != null ? playerMap.get(ids[i].firstPlayerId!)  : undefined,
+                secondPlayer: ids[i].secondPlayerId != null ? playerMap.get(ids[i].secondPlayerId!) : undefined,
+            }));
+
+            setMatches(enriched);
             setMeta({ total: d.totalCount ?? 0, page: d.currentPage ?? page, limit: 10 });
         } catch { setMatches([]); }
         finally  { setLoading(false); }
