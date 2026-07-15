@@ -9,8 +9,59 @@ import CartSummary from '@/features/carts/components/CartSummary';
 import CartForm from '@/features/carts/components/Cart-from';
 import OrderSuccessModal, { OrderSuccessModalProps } from '@/features/carts/components/OrderSuccessModal';
 
+const BASE = 'http://localhost:3001';
+
 function getToken() {
     return typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+}
+
+function normalizeImg(src?: string) {
+    if (!src) return '';
+    const s = src.replace(/\\/g, '/');
+    return s.startsWith('http') ? s : `${BASE}/${s}`;
+}
+
+async function attachProductDetails(rawItems: { id: number; target: string; targetId: number; quantity: number }[]): Promise<CartItemData[]> {
+    const [booksRes, souvenirsRes, souvenirImagesRes] = await Promise.all([
+        api.get('/public/book', { params: { size: 1000 } }),
+        api.get('/public/souvenir', { params: { size: 1000 } }),
+        api.get('/public/souvenir-images'),
+    ]);
+    const books = Array.isArray(booksRes.data?.data) ? booksRes.data.data : (Array.isArray(booksRes.data) ? booksRes.data : []);
+    const souvenirs = Array.isArray(souvenirsRes.data?.data) ? souvenirsRes.data.data : (Array.isArray(souvenirsRes.data) ? souvenirsRes.data : []);
+    const souvenirImages = Array.isArray(souvenirImagesRes.data?.data) ? souvenirImagesRes.data.data : (Array.isArray(souvenirImagesRes.data) ? souvenirImagesRes.data : []);
+
+    const result: CartItemData[] = [];
+    for (const raw of rawItems) {
+        if (raw.target === 'book') {
+            const book = books.find((b: any) => b.id === raw.targetId);
+            if (!book) continue;
+            result.push({
+                ...raw,
+                item: {
+                    id: book.id,
+                    title: book.title,
+                    price: Number(book.price),
+                    newPrice: book.newPrice != null ? Number(book.newPrice) : undefined,
+                    image: normalizeImg(book.image),
+                },
+            });
+        } else {
+            const souvenir = souvenirs.find((s: any) => s.id === raw.targetId);
+            if (!souvenir) continue;
+            const image = souvenirImages.find((i: any) => i.souvenirId === raw.targetId)?.image;
+            result.push({
+                ...raw,
+                item: {
+                    id: souvenir.id,
+                    title: souvenir.title,
+                    price: Number(souvenir.price),
+                    image: normalizeImg(image),
+                },
+            });
+        }
+    }
+    return result;
 }
 
 function generateOrderCode(): string {
@@ -21,7 +72,7 @@ type Step = 'cart' | 'details';
 
 export default function CartPage() {
     const [items, setItems] = useState<CartItemData[]>([]);
-    const [loading, setLoading] = useState(() => Boolean(getToken()));
+    const [loading, setLoading] = useState(false);
     const [orderLoading, setOrderLoading] = useState(false);
     const [step, setStep] = useState<Step>('cart');
     const [orderCode, setOrderCode] = useState<string | null>(null);
@@ -30,9 +81,11 @@ export default function CartPage() {
     useEffect(() => {
         const token = getToken();
         if (!token) return;
+        setLoading(true);
         api.get('/public/cart')
-            .then(res => {
-                const data = Array.isArray(res.data) ? res.data : (res.data?.data ?? []);
+            .then(async res => {
+                const raw = Array.isArray(res.data) ? res.data : (res.data?.data ?? []);
+                const data = await attachProductDetails(raw);
                 setItems(data);
             })
             .catch(() => setItems([]))

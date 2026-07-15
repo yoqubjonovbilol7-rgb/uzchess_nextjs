@@ -102,8 +102,7 @@ export default function SouvenirDetailPage() {
         if (cartLoading) return;
         try {
             setCartLoading(true);
-            const colorId = activeColor != null ? souvenir?.colors?.[activeColor]?.colorId : undefined;
-            await api.post('/public/cart', { target: 'souvenir', targetId: numId, quantity: 1, ...(colorId != null ? { colorId } : {}) });
+            await api.post('/public/cart', { target: 'souvenir', targetId: numId, quantity: 1 });
             setCartAdded(true);
             window.dispatchEvent(new Event('cart-change'));
         } catch (err) {

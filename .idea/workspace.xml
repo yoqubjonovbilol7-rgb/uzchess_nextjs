@@ -5,67 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b28adf-8a23-44b5-8ec0-4f9e8e9a09c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/Frame 427319298.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Frame 427319300.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Frame1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Frame2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons8-running-rabbit.15 1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../homework" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/main/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/main/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/ranking/matches/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ranking/matches/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/main/components/ChessComBanner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/components/ChessComBanner.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/main/components/SidebarPromo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/components/SidebarPromo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/main/components/UpcomingGames.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/components/UpcomingGames.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/ranking/components/MatchesFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ranking/components/MatchesFilter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/ranking/components/RankingFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ranking/components/RankingFilter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/shared/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/shared/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/eslint.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/Frame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/Frame4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/Group.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/bell.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/cart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/chess.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/chevron-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/chevron-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/facebook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/grid1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/heart-outline.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/home1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/icon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/instagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/student_center.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/telegram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/twitter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/uzchess.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/public/youtube.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/course/components/CourseCard.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/course/components/CourseFilter.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/course/components/SearchBar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/course/page/Course.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/main/Page/Main.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/news/components/NewsBookItem.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/news/components/NewsItem.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/news/components/Search.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/news/page/News.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/shared/components/Footer/Footer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/features/shared/components/Header/Header.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/src/main.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/tsconfig.node.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../uzchess_react/vite.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/carts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/carts/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/souvenirs/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/souvenirs/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/course/components/CourseDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/course/components/CourseDetail.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +50,7 @@
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer/WebstormProjects/frontend/uzchess_nextjs/public&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer/projects/uzchess_nextjs&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -119,7 +63,7 @@
     &quot;npm.start:dev.executor&quot;: &quot;Run&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Acer\\WebstormProjects\\frontend\\uzchess_nextjs\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Acer\\projects\\uzchess_nextjs\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -195,6 +139,8 @@
       <workItem from="1783331950680" duration="2715000" />
       <workItem from="1783342796537" duration="6252000" />
       <workItem from="1783497468187" duration="3663000" />
+      <workItem from="1784084177671" duration="8687000" />
+      <workItem from="1784094190518" duration="193000" />
     </task>
     <servers />
   </component>
