@@ -25,7 +25,7 @@ export default function NotFound() {
                         src="/Board.png"
                         alt="Chess board"
                         width={500}
-                        height={340}
+                        height={284}
                         priority
                         loading="eager"
                         className="rounded-2xl"

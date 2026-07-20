@@ -89,7 +89,7 @@ export default function CertificatePage() {
                                     src="/Certificate.png"
                                     alt="Sertifikat"
                                     width={900}
-                                    height={630}
+                                    height={635}
                                     priority
                                     unoptimized
                                     style={{ width: '100%', height: 'auto' }}

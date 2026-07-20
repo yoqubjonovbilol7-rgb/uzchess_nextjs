@@ -6,10 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="25b28adf-8a23-44b5-8ec0-4f9e8e9a09c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AGENTS.md" beforeDir="false" afterPath="$PROJECT_DIR$/AGENTS.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/carts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/carts/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/courses/[id]/certificate/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/courses/[id]/certificate/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/courses/[id]/lesson/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/courses/[id]/lesson/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/not-found.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/souvenirs/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/souvenirs/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/course/components/CourseDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/course/components/CourseDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/shared/components/AuthModal/AuthModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/shared/components/AuthModal/AuthModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/shared/components/AuthPanel/AuthRightPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/shared/components/AuthPanel/AuthRightPanel.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +66,7 @@
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
     &quot;npm.start.executor&quot;: &quot;Run&quot;,
     &quot;npm.start:dev.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Acer\\projects\\uzchess_nextjs\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -141,6 +146,9 @@
       <workItem from="1783497468187" duration="3663000" />
       <workItem from="1784084177671" duration="8687000" />
       <workItem from="1784094190518" duration="193000" />
+      <workItem from="1784103753906" duration="92000" />
+      <workItem from="1784536359399" duration="647000" />
+      <workItem from="1784537418084" duration="8044000" />
     </task>
     <servers />
   </component>

@@ -33,9 +33,16 @@ export default function LessonPage() {
                 const all: any[] = Array.isArray(lData?.data) ? lData.data
                     : Array.isArray(lData?.items) ? lData.items
                     : Array.isArray(lData) ? lData : [];
+                const seen = new Set<string>();
                 const arr = all
                     .filter((l: any) => Number(l.courseId) === Number(id))
-                    .map((l: any, i: number) => ({ ...l, id: l.id ?? (l.courseSectionId * 1000 + (l.order ?? i)) }));
+                    .map((l: any, i: number) => ({ ...l, id: l.id ?? (l.courseSectionId * 1000 + (l.order ?? i)) }))
+                    .filter((l: any) => {
+                        const key = String(l.id);
+                        if (seen.has(key)) return false;
+                        seen.add(key);
+                        return true;
+                    });
                 setLessons(arr);
 
                 if (token) {

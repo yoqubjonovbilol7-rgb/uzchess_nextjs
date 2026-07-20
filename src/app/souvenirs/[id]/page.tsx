@@ -21,11 +21,11 @@ interface SouvenirColor { id: number; souvenirId?: number; colorId?: number; col
 interface Review {
     id: number;
     userId: number;
+    souvenirId: number;
     rating: string | number;
     comment: string;
     date?: string;
     user?: { fullName?: string; image?: string; profileImage?: string; avatar?: string };
-    souvenir?: { id?: number };
 }
 
 interface Souvenir {
@@ -88,7 +88,7 @@ export default function SouvenirDetailPage() {
                 ...s,
                 images: allImgs.filter((i: { souvenirId: number }) => i.souvenirId === numId),
                 colors: souvenirColors,
-                reviews: (allRevs as Review[]).filter(r => r.souvenir?.id === numId),
+                reviews: (allRevs as Review[]).filter(r => r.souvenirId === numId),
             });
             setActiveColor(souvenirColors.length > 0 ? 0 : null);
             setLiked(isSavedSouvenir(numId) || (s?.isLiked ?? false));
@@ -134,7 +134,7 @@ export default function SouvenirDetailPage() {
         const res = await fetch(`${BASE}/public/souvenir-reviews`);
         const data = await res.json();
         const all: Review[] = Array.isArray(data?.data) ? data.data : Array.isArray(data) ? data : [];
-        const filtered = all.filter(r => r.souvenir?.id === numId);
+        const filtered = all.filter(r => r.souvenirId === numId);
         setSouvenir(prev => prev ? { ...prev, reviews: filtered } : prev);
     }
 

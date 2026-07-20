@@ -144,20 +144,23 @@ export default function CourseDetail({ course }: Props) {
     }
 
     useEffect(() => {
+        let ignore = false;
         Promise.all([
             fetch(`${BASE}/public/courseSection`).then(r => r.json()),
             fetch(`${BASE}/public/courseLesson`).then(r => r.json()),
         ]).then(([sd, ld]) => {
+            if (ignore) return;
             const allSections: Section[] = Array.isArray(sd?.data) ? sd.data : Array.isArray(sd?.items) ? sd.items : Array.isArray(sd) ? sd : [];
             const allLessons: Lesson[] = Array.isArray(ld?.data) ? ld.data : Array.isArray(ld?.items) ? ld.items : Array.isArray(ld) ? ld : [];
             const sArr = allSections.filter((s: any) => Number(s.courseId) === Number(course.id));
             const rawLessons = allLessons.filter((l: any) => Number(l.courseId) === Number(course.id));
-            const lArr = rawLessons.map((l, i) => ({ ...l, id: l.id ?? (l.courseSectionId * 1000 + (l.order ?? i)) }));
+            const lArr = rawLessons.map((l, i) => ({ ...l, id: l.id ?? `gen-${l.courseSectionId}-${i}` }));
             setSections(sArr);
             setLessons(lArr);
             if (sArr.length > 0) setOpenSection(Number(sArr[0].id));
             if (lArr.length > 0) setLastLesson(lArr[0]);
         }).catch(() => {});
+        return () => { ignore = true; };
     }, [course.id]);
 
     function handleSave() {

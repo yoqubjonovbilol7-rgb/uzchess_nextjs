@@ -15,7 +15,7 @@ export default function AuthRightPanel() {
                     src="/Frame 427318502.png"
                     alt="UzChess"
                     width={240}
-                    height={300}
+                    height={323}
                     className="w-full h-auto drop-shadow-2xl"
                     priority
                 />

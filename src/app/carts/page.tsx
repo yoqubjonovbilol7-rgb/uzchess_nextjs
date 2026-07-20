@@ -181,7 +181,7 @@ export default function CartPage() {
                                 </div>
                                 <div className="text-center">
                                     <p className="text-white text-xl font-semibold mb-2">Savatcha bo&apos;sh</p>
-                                    <p className="text-[#8A8F98] text-sm">Kitob yoki kurslarni savatchaga qo&apos;shing</p>
+                                    <p className="text-[#8A8F98] text-sm">Kitob yoki suvener savatchaga qo&apos;shing</p>
                                 </div>
                             </div>
                         ) : (

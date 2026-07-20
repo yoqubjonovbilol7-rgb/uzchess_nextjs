@@ -80,7 +80,7 @@ export default function AuthModal({ onClose }: Props) {
                         src="/Frame 427318502.png"
                         alt="UzChess"
                         width={200}
-                        height={280}
+                        height={270}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         priority
                     />
