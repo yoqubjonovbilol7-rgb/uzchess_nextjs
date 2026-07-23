@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25b28adf-8a23-44b5-8ec0-4f9e8e9a09c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AGENTS.md" beforeDir="false" afterPath="$PROJECT_DIR$/AGENTS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/carts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/carts/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/courses/[id]/certificate/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/courses/[id]/certificate/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/courses/[id]/lesson/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/courses/[id]/lesson/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/souvenirs/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/souvenirs/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/course/components/CourseDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/course/components/CourseDetail.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/shared/components/AuthModal/AuthModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/shared/components/AuthModal/AuthModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/shared/components/AuthPanel/AuthRightPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/shared/components/AuthPanel/AuthRightPanel.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="25b28adf-8a23-44b5-8ec0-4f9e8e9a09c6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,7 +137,7 @@
       <workItem from="1784094190518" duration="193000" />
       <workItem from="1784103753906" duration="92000" />
       <workItem from="1784536359399" duration="647000" />
-      <workItem from="1784537418084" duration="8044000" />
+      <workItem from="1784537418084" duration="8175000" />
     </task>
     <servers />
   </component>
